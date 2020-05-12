@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -N job_name
+#PBS -l select=1:ncpus=64:mpiprocs=64
+#PBS -l walltime=12:00:00
+#PBS -A set_your_account_key 
+#PBS -j oe
+#PBS -q regular
+
+## set directories
+#for csh & tcsh
+#setenv TMPDIR /glade/scratch/$USER/temp
+export TMPDIR=/glade/scratch/$USER/temp
+mkdir -p $TMPDIR
+
+## start the application
+
+
+time mpiexec_mpt ./cloud_turb  > stdout_cheyenne

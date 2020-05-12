@@ -1,0 +1,3 @@
+#!/bin/bash
+gfortran activation.F90 -o cloud_turb
+./cloud_turb
