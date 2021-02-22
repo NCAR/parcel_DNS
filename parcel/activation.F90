@@ -1,4 +1,4 @@
-      program myfirst
+      program parcel_model !parcel model main program
         !aerosol activation for parcel of 1m^3 in volume
       implicit none
       real*8 :: tau,source,qvpp,qvs,PP,esat,ks,temp,dp,time,temp0,upp,time_prep
@@ -57,12 +57,12 @@
       rad=rm
       dsd=0.d0
       dr3=0.d0
-!      ndrop=2.d2 !cm^-3
+!     get the initial aerosol size spectrum
       call iaerosol(disp,rad,mass,dsd,nbins,ndrop,iinit,ifinal,rm,nbinsout,GCCN)
       print*,'nbinsout,GCCN',nbinsout,GCCN
       write(50,145) 0.,(dsd(i), i=1,nbinsout)
       write(51,145) 0.,(rad(i), i=1,nbinsout)
-      print*,'ndrop',ndrop,sum(dsd(1:nbinsout)),'disp',disp
+      print*,'total droplet number',ndrop,sum(dsd(1:nbinsout)),'dispersion parameter',disp
 !-------------initialize variables------------
       rad1=rad
       h = 1.d-2 !.01m=1cm
@@ -153,8 +153,7 @@
           enddo
           rm=(sum(rad(1:nbinsout)**3*dsd(1:nbinsout))/ndrop)**(1.d0/3.0d0)
           if(mod(ntmic,int(time_prep/delt*2.d0)/1000) .eq. 0 .or. int(time_prep/delt*2.d0) .le. 1000) then
-             write(16,*) time,0,Sp,ndrop,pp,temp,&
-               thetapp,qvpp,qvs,lwc,rhoa,deltaqp
+             write(16,*) time,0,Sp,ndrop,pp,temp,thetapp,qvpp,qvs,lwc,rhoa,deltaqp
              write(50,145) time,(dsd(i), i=1,nbinsout)
              write(51,145) time,(rad(i), i=1,nbinsout)
 	  endif
@@ -232,11 +231,10 @@
       close(unit=50)
 
 
-      end program myfirst
+      end program parcel_model
 
     SUBROUTINE IAEROSOL(disp,rad,mass,nrad,nbins,ndrop,iinit,ifinal,rm,nbinsout,GCCN)
-!---- This subroutine determines the initial position and size of all droplets
-!!----- for droplets locations & ID# & random # generator
+!---- This subroutine determines the initial size of aerosols at each size bin.
   implicit none
 
   ! --- argument ---
