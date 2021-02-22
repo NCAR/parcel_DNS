@@ -1,3 +1,11 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! Parcel Model for aerosol activation, droplet growth by condensation   !!!
+!! The model was based on the equations by Jensen & Nugent (2017): https://doi.org/10.1175/JAS-D-15-0370.1
+!! More details on the model description & results, see Chen et al. (2020): https://doi.org/10.5194/acp-20-10111-2020	 !!!
+!! Collision-coalescence is excluded in the parcel model		 !!!
+!! The code was written by Sisi Chen (sisichen@ucar.edu) in 2019 	 !!!
+!! (recent update in 2020)						 !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       program parcel_model !parcel model main program
         !aerosol activation for parcel of 1m^3 in volume
       implicit none

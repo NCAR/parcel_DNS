@@ -1,8 +1,19 @@
 # aerosol activation code
+Both models were written in FORTRAN.
 
 #parcel model
 The model was developed based on Jensen & Nugent 2017 JAS's equations
 Collision-coalescence is excluded in the parcel model
+The code is stored in /parcel 
+The folder include:
+1) run is the script to compile & run the code. The code can be run at your desktop (if you have FORTRAN compiler installed)
+2) activation.F90 is the source code of the parcel model. 
+3) a sample of the output files using the current configuration 
+	3a) new.dsd is the output of the droplet size distribution (number concentration of the droplet at each size bin)
+	3b) new.rad is the radius of the droplet at each size bin
+  	3c) new.out is the parcel-mean variables of time, height, supersaturation, total number of droplets, pressure, temperature, potential temperature, water vapor mixing ratio, saturated water vapor mixing ratio, liquid water content, air density, deltaqp (some intermediate quantities that you may skip). 
+	Look for the line starting with "write(16,*) time,0,Sp,ndrop,pp,temp,”... in the code, and you can find the variable names corresponding to the above quantities. 
+
 
 #DNS model
 
@@ -98,4 +109,6 @@ cd example
 spin1: output for spin1
 spin2: output for spin2
 simulation: output for real simulation
+
+
 
