@@ -1,6 +1,5 @@
-If you use the model/model code
-Please cite the following paper. Thank you!
-Chen, S., Xue, L., and Yau, M.-K.: Impact of aerosols and turbulence on cloud droplet growth: an in-cloud seeding case study using a parcel–DNS (direct numerical simulation) approach, Atmos. Chem. Phys., 20, 10111–10124, https://doi.org/10.5194/acp-20-10111-2020, 2020.
+If you use the model/model code, please cite the following paper. Thank you!
+cite: Chen, S., Xue, L., and Yau, M.-K.: Impact of aerosols and turbulence on cloud droplet growth: an in-cloud seeding case study using a parcel–DNS (direct numerical simulation) approach, Atmos. Chem. Phys., 20, 10111–10124, https://doi.org/10.5194/acp-20-10111-2020, 2020.
 
 Contact Sisi Chen (sisichen@ucar.edu) if you have any questions. Thank you!
 
