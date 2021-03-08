@@ -108,13 +108,5 @@ compile and submit
     ./compile_and_run
 
 
-##----test run----------------------------------##
-
-The results are in the folder "example"
-cd example
-spin1: output for spin1
-spin2: output for spin2
-simulation: output for real simulation
-
 
 
