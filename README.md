@@ -1,3 +1,9 @@
+If you use the model/model code
+Please cite the following paper. Thank you!
+Chen, S., Xue, L., and Yau, M.-K.: Impact of aerosols and turbulence on cloud droplet growth: an in-cloud seeding case study using a parcel–DNS (direct numerical simulation) approach, Atmos. Chem. Phys., 20, 10111–10124, https://doi.org/10.5194/acp-20-10111-2020, 2020.
+
+Contact Sisi Chen (sisichen@ucar.edu) if you have any questions. Thank you!
+
 # aerosol activation code
 Both models were written in FORTRAN.
 
@@ -17,7 +23,7 @@ The folder include:
 
 #DNS model
 
-This is the version of DNS based on Chen et al. (2020) in ACP: https://www.atmos-chem-phys-discuss.net/acp-2019-886/
+This is the version of DNS based on Chen et al. (2020) in ACP: https://acp.copernicus.org/articles/20/10111/2020/acp-20-10111-2020.html
 
 
 The model equations & algorithms can be seen in Chen et al. (2016) http://journals.ametsoc.org/doi/abs/10.1175/JAS-D-15-0203.1 
