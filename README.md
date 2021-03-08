@@ -34,7 +34,7 @@ Modifications were also made in Chen et al. (2018) ACP: https://www.atmos-chem-p
 
 Updates:
 May 2020:
-Changed the precision of droplet-related variables to double precision. The single precision has caused the round-off truncation error which prevent the droplet from growing.
+Changed the precision of droplet-related variables to double precision. The single precision has caused the round-off truncation error which prevented the droplet from growing.
 
 May 2019:
 Debug finished in terms of solute effect. The model now can handle the hygroscopic growth of multiple chemical species.
@@ -51,11 +51,7 @@ The first version of this DNS was developed in late 90s using Fortran 77 by Paul
 The second version given by Franklin et al. (2005&2007) was parallelized using OpenMP. The MPI parallelization on the turbulence code was finally realized by Mike Waite. And the code was then partially transformed to F90
 
 
-The model is in git_aerosol/
-
-The test data is in example/
-
-##--------modules loaded---------##
+##--------modules loaded at Cheyenne---------##
 
 1) ncarenv/1.2   2) intel/17.0.1   3) ncarcompilers/0.4.1   4) mpt/2.19   5) netcdf/4.6.1
 #library installed locally
@@ -75,34 +71,43 @@ param.inc:
     iturb = 1 #turn on turbulence
     gomic = 0 #turn off droplets
     thermo = 1 #turn on thermodynamic calculation (e.g., Temperature & water vapor)
+    
+Edit run_cheyenne (job submission script to Cheyenne, you may modify it based on the job schedulers in your supercomputer)
+
 compile and submit
     ./compile_and_run
+    
 File output:
-    Zk1.out.ncf     #flow field data in Fourier space
-    out.ncf         #flow field data in real space if rsflag = 1 in main.F90
-    Run_aerosol.*   #various informations with its file explained in main.F90
-
+    Zk1.out.ncf     #flow field data in Fourier space (netcdf)
+    out.ncf         #flow field data in real space if rsflag = 1 in main.F90 (netcdf)
+    Run_aerosol.*   #various informations with its file explained/defined in main.F90
+    
 2 droplet(microphysics) spin-up run: 
 
-Restart file:
+Rename restart file:
     mv Zk1.out.ncf Zk.in.ncf #rename the output to *in.ncf and used as restart file
 param.inc:
     gomic = 1 #initiate droplets
+
+Edit run_cheyenne (job submission script to Cheyenne, you may modify it based on the job schedulers in your supercomputer)
 compile and submit
     ./compile_and_run
+    
 File output:
-    Zk1.out.ncf     #flow field data in Fourier space
-    out.ncf         #flow field data in real space if rsflag = 1 in main.F90
-    Run_aerosol.*   #various informations with its file explained in main.F90
-    drop1.out.ncf   #droplet data
-
+    Zk1.out.ncf     #flow field data in Fourier space (netcdf)
+    drop1.out.ncf   #droplet data (netcdf)
+    out.ncf         #flow field data in real space if rsflag = 1 in main.F90 (netcdf)
+    Run_aerosol.*   #various informations with its file explained/defined in main.F90
+    
 3 real simulation
 
-Restart file:
+Rename restart file:
     mv Zk1.out.ncf Zk.in.ncf
     mv drop1.out.ncf drop.in.ncf
 param.inc:
     gomic = 2 #droplets from restart files
+
+Edit run_cheyenne (job submission script to Cheyenne, you may modify it based on the job schedulers in your supercomputer)
 
 compile and submit
     ./compile_and_run
